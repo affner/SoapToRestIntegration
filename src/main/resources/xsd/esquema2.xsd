@@ -1,0 +1,20 @@
+<schema xmlns:tns="http://proteo.bs.com/soa/service/mainframe/consultatin/domain/message" xmlns:ns0="http://proteo.bs.com/soa/shared/data/v2///" xmlns:domain="http://proteo.bs.com/soa/service/mainframe/consultatin/domain" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://proteo.bs.com/soa/service/mainframe/consultatin/domain/message" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <import namespace="http://proteo.bs.com/soa/service/mainframe/consultatin/domain"/>
+    <import namespace="http://proteo.bs.com/soa/shared/data/v2///"/>
+    <element name="operation01Request">
+        <complexType>
+            <sequence>
+                <element ref="ns0:HeaderRequest"/>
+                <element name="InputData" type="domain:operation01RequestInputData"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="operation01Response">
+        <complexType>
+            <sequence>
+                <element ref="ns0:HeaderResponse"/>
+                <element name="OutputData" type="domain:operation01ResponseOutputData"/>
+            </sequence>
+        </complexType>
+    </element>
+</schema>

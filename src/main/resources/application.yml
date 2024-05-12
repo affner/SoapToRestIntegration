@@ -1,0 +1,10 @@
+play:
+  ejecutar:
+    login:
+      dir: "/[RutaAbsoluta]/properties/"
+      xml: "login.xml"
+      url: "http://localhost:9040/soa/service/mainframe/UserLoginservice"
+    tibco:
+      url: "http://localhost:9000/consultatitularidadservice"
+      # Si necesitas alternar a otro ambiente, puedes descomentar la siguiente línea y comentar la línea anterior
+      # url: "http://tfvapp1d:9095/consultatinservice"

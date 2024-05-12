@@ -1,0 +1,103 @@
+<schema xmlns:tns="http://proteo.bs.com/soa/shared/data/v2///" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://proteo.bs.com/soa/shared/data/v2///" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <complexType name="FaultDetail">
+        <sequence>
+            <element name="faultCode" type="string"/>
+            <element name="faultDescription" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="HostAuthorizationAction">
+        <sequence>
+            <element name="resourceType" type="int"/>
+            <element name="authorizationType" type="int"/>
+            <element name="errorCode" type="int"/>
+            <element name="errorDescription" type="string"/>
+            <element name="moreInfo" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="HostAuthorizationError">
+        <sequence>
+            <element ref="tns:authorizationId"/>
+            <element name="authorizationType" type="int"/>
+            <element name="actions" type="tns:HostAuthorizationAction" minOccurs="0" maxOccurs="unbounded"/>
+        </sequence>
+    </complexType>
+    <complexType name="HostError">
+        <sequence>
+            <element name="messages" type="tns:HostMessage" maxOccurs="unbounded"/>
+            <element name="authorizationError" type="tns:HostAuthorizationError" minOccurs="0"/>
+            <element ref="tns:complianceId" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="HostMessage">
+        <sequence>
+            <element name="id" type="int"/>
+            <element name="severity" type="int"/>
+            <element name="description" type="string"/>
+        </sequence>
+    </complexType>
+    <complexType name="NativeFaultDetail">
+        <complexContent>
+            <extension base="tns:FaultDetail">
+                <sequence>
+                    <element name="HostFault" type="tns:HostError" minOccurs="0"/>
+                </sequence>
+            </extension>
+        </complexContent>
+    </complexType>
+    <element name="ClientInfo">
+        <complexType>
+            <sequence>
+                <element name="applicationId" type="string" minOccurs="0"/>
+                <element name="language" type="string" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="FaultInfo">
+        <complexType>
+            <sequence>
+                <element ref="tns:HeaderResponse"/>
+                <element name="CommonFault" type="tns:FaultDetail"/>
+                <element name="NativeFault" type="tns:NativeFaultDetail"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="HeaderRequest">
+        <complexType>
+            <sequence>
+                <element ref="tns:trackingId"/>
+                <element ref="tns:ClientInfo" minOccurs="0"/>
+                <element ref="tns:HostRequest" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="HeaderResponse">
+        <complexType>
+            <sequence>
+                <element ref="tns:trackingId"/>
+                <element name="status" type="int"/>
+                <element ref="tns:HostResponse" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="HostRequest">
+        <complexType>
+            <sequence>
+                <element ref="tns:sessionId" minOccurs="0"/>
+                <element ref="tns:authorizationId" minOccurs="0"/>
+                <element ref="tns:complianceId" minOccurs="0"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="HostResponse">
+        <complexType>
+            <sequence>
+                <element ref="tns:sessionId" minOccurs="0"/>
+                <element name="messages" type="tns:HostMessage" minOccurs="0" maxOccurs="unbounded"/>
+            </sequence>
+        </complexType>
+    </element>
+    <element name="authorizationId" type="int"/>
+    <element name="complianceId" type="string"/>
+    <element name="sessionId" type="string"/>
+    <element name="trackingId" type="string"/>
+</schema>

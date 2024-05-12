@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IBERPAY TIC V0.1 Schema, Release Mayo 2020 -->
+<wsdl:definitions
+        xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+        name="WS_RECEP_SOL"
+        targetNamespace="http://tic.play.es/consumed/WS_RECEP_SOL"
+        xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+        xmlns:tns="http://tic.play.es/consumed/WS_RECEP_SOL"
+        xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+    <wsdl:types>
+        <xsd:schema >
+            <xsd:element name="Input">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element type="xsd:string" name="Document"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+        <xsd:schema >
+            <xsd:element name="Output">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element type="xsd:string" name="Status"/>
+                        <xsd:element type="xsd:string" name="Document"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="envioTitularidadRequest">
+        <wsdl:part element="tns:Input" name="WS_RECEP_SOL_Request" />
+    </wsdl:message>
+    <wsdl:message name="envioTitularidadResponse">
+        <wsdl:part element="tns:Output" name="WS_RECEP_SOL_Response" />
+    </wsdl:message>
+
+    <wsdl:portType name="SoapToRestIntegrationPortType">
+        <wsdl:operation name="envioTitularidad">
+            <wsdl:input message="tns:envioTitularidadRequest" />
+            <wsdl:output message="tns:envioTitularidadResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="SoapToRestIntegrationPortBinding" type="tns:SoapToRestIntegrationPortType">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="envioTitularidad">
+            <soap:operation soapAction="http://tic.play.es/Exposed_Envio_Sol/envioTitularidad"/>
+            <wsdl:input>
+                <soap:body use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="WS_RECEP_SOL">
+        <wsdl:port binding="tns:SoapToRestIntegrationPortBinding" name="SoapToRestIntegrationPort">
+            <soap:address location="http://localhost:8080/ws/integrationPlay" />
+        </wsdl:port>
+    </wsdl:service>
+
+</wsdl:definitions>

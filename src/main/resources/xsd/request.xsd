@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <!-- IBERPAY TIC V0.1 Schema, Release Mayo 2020 -->
+<xsd:schema elementFormDefault="qualified"
+            targetNamespace="http://tic.play.es/consumed/WS_RECEP_SOL"
+            xmlns="http://www.w3.org/2001/XMLSchema"
+            xmlns:tns="http://tic.play.es/consumed/WS_RECEP_SOL"
+            xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+<xsd:element name="Input">
+    <xsd:complexType>
+        <xsd:sequence>
+            <xsd:element ref="tns:Document" minOccurs="0"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:element>
+<element name="Document" type="base64Binary"/>
+</xsd:schema>

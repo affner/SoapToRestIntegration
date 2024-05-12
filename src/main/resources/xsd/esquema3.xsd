@@ -1,0 +1,46 @@
+<schema xmlns:tns="http://proteo.bs.com/soa/service/mainframe/consultatin/domain" xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://proteo.bs.com/soa/service/mainframe/consultatin/domain" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    <simpleType name="base64Binary">
+        <restriction base="string"/>
+    </simpleType>
+    <simpleType name="int">
+        <restriction base="string"/>
+    </simpleType>
+    <complexType name="operation01RequestInputData">
+        <sequence>
+            <element name="PE7537I-CREDTM" type="string" minOccurs="0"/>
+            <element name="PE7537I-REFER" type="string" minOccurs="0"/>
+            <element name="PE7537I-ID-CUENTA" type="string" minOccurs="0"/>
+            <element name="PE7537I-ID-TITULAR" type="string" minOccurs="0"/>
+            <element name="PE7537I-TITULAR" type="string" minOccurs="0"/>
+            <element name="PE7537I-FEC-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537I-IBAN-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537I-BIC-DIR-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537I-BIC-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537I-IBAN-DES" type="string" minOccurs="0"/>
+            <element name="PE7537I-BIC-DIR-DES" type="string" minOccurs="0"/>
+            <element name="PE7537I-BIC-DES" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <complexType name="operation01ResponseOutputData">
+        <sequence>
+            <element name="PE7537O-CREDTM" type="string" minOccurs="0"/>
+            <element name="PE7537O-REFER" type="string" minOccurs="0"/>
+            <element name="PE7537O-ID-CUENTA" type="string" minOccurs="0"/>
+            <element name="PE7537O-ID-TITULAR" type="string" minOccurs="0"/>
+            <element name="PE7537O-TITULAR" type="string" minOccurs="0"/>
+            <element name="PE7537O-FEC-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537O-IBAN-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537O-BIC-DIR-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537O-BIC-SOL" type="string" minOccurs="0"/>
+            <element name="PE7537O-IBAN-DES" type="string" minOccurs="0"/>
+            <element name="PE7537O-BIC-DIR-DES" type="string" minOccurs="0"/>
+            <element name="PE7537O-BIC-DES" type="string" minOccurs="0"/>
+            <element name="PE7537O-FEC-RES" type="string" minOccurs="0"/>
+            <element name="PE7537O-COD-RES" type="string" minOccurs="0"/>
+            <element name="PE7537O-MOT-RECH" type="string" minOccurs="0"/>
+        </sequence>
+    </complexType>
+    <simpleType name="string">
+        <restriction base="string"/>
+    </simpleType>
+</schema>

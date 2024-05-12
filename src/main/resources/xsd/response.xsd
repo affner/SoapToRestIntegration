@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- IBERPAY TIC V0.1 Schema, Release Mayo 2020 -->
+<xsd:schema elementFormDefault="qualified"
+	targetNamespace="http://tic.play.es/consumed/WS_RECEP_SOL"
+	xmlns="http://www.w3.org/2001/XMLSchema" 
+	xmlns:tns="http://tic.play.es/consumed/WS_RECEP_SOL"
+	xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" 
+	xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="Output" type="tns:Output" />
+
+	<xsd:complexType name="Output">
+		<xsd:sequence minOccurs="1" maxOccurs="1">
+
+			<xsd:element
+					name="Status"
+					minOccurs="1"
+					maxOccurs="1"
+					type="xsd:string" />
+
+			<xsd:element
+					name="Document"
+					minOccurs="0"
+					maxOccurs="1"
+					type="xsd:string" />
+
+		</xsd:sequence>
+	</xsd:complexType>
+
+
+</xsd:schema>
